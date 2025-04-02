@@ -6,14 +6,13 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Customer(models.Model):
-    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, null=True)
-    phone = PhoneNumberField(blank=True)
-    email = models.CharField(max_length=200)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    email = models.EmailField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.name
-    
+        return self.user.username if self.user else "Anonymous Customer"
+
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -92,7 +91,7 @@ class ProductDetails(models.Model):
     description = HTMLField()
 
     def __str__(self):
-        return
+        return f"detail of {self.product.name}"
     # multiple images
 
 class ProductImages(models.Model):

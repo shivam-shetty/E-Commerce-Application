@@ -1,38 +1,105 @@
-{% extends 'store/main.html' %} {% load static %} {% block content %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<div class="row">
-  <div class="col-md-6">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div id="carouselExampleIndicators" class="carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/3.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/3.jpg' %}" class="d-block w-100" alt="...">
-        </div>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Product Name</h2>
+      <h3 class="text-success">₹ 200</h3>
+      <p>Overpriced Efficiency, Instant Regret, and Emotional Damage.</p>
+
+      <div class="d-flex">
+        <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
       </div>
-      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button> -->
+
+      <div class="mt-3">
+        <button class="btn btn-outline-danger">❤️ Add to Wishlist</button>
+        <button class="btn btn-outline-info">🔗 Share</button>
+      </div>
     </div>
-    </div>
-    </div>
+  
+
+  <div class="mt-5">
+    <h4>Features</h4>
+    <ul>
+      <li>99.9% Air Technology™ – So advanced, it’s basically a scam.</li>
+      <li>Limited Edition – Because we’ll never make this mistake again.</li>
+      <li>Pre-Damaged for Realism – Arrives broken so you don’t have to break it yourself.</li>
+      <li>Anti-Gravity Mode – Throw it, and it will NEVER come back.</li>
+      <li>Quantum Lag™ – Slower than your brain on Monday mornings.</li>
+      <li>Limited Edition Mystery Feature – Even we don’t know what it does, but it’s there.</li>
+    </ul>
+  </div>
+<hr><hr>
+  <div class="mt-5">
+    <h4>Specifications</h4>
+    <table class="table table-striped">
+      <tr><th>Processor</th><td>Runs at 100% efficiency… unless you touch it, then it’s “EMOTIONAL DAMAGE.”</td></tr>
+      <tr><th>Display</th><td>So bright, your ancestors can see it.</td></tr>
+      <tr><th>Storage</th><td>Can hold all your hopes and dreams—until your parents check your grades.</td></tr>
+      <tr><th>Battery Life</th><td>Lasts longer than your will to live after a math test.</td></tr>
+      <tr><th>Connectivity</th><td>Faster than your dad running when the WiFi bill is due.</td></tr>
+      <tr><th>Refund Policy?</th><td>HAHAHA. No.</td></tr>
+    </table>
+  </div>
+<hr><hr>
+    <div class="mt-5">
+      <h4>Customer Reviews</h4>
+  <hr>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Used this once, my dad said, 'You have potential.' I ascended to another plane." - <strong>Jonathan, First-Time Non-Disappointment</strong></p>
+  <hr>
+      <p>⭐</p>
+      <p>"Bought this, dad looked at me and said, 'You still useless.' Nothing changed." - <strong>Eric, Lifetime Failure Award Winner</strong></p>
+  <hr>
+      <p>⭐⭐⭐⭐</p>
+      <p>"Product so effective, my dad actually nodded at me. I almost fainted." - <strong>William, Shocked Survivor</strong></p>
+  <hr>
+      <p>⭐</p>
+      <p>"Tried to impress my dad with this, he said, 'Should've been a doctor instead.' Pain." - <strong>Michael, Permanently Injured</strong></p>
+  <hr>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"My uncle used this and suddenly disappeared... now he's a billionaire in Silicon Valley." - <strong>Jason, Left Behind</strong></p>
+  <hr>
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"This product so good, I finally beat my cousin in a test. My dad still said, 'Disappointment,' but slightly less." - <strong>Steven He, Faliure Management™</strong></p>
+  <hr>
+      <p>⭐</p>
+      <p>"WHAT YOU MEAN FIVE STARS? I GIVE YOU ONE STAR, BECAUSE THAT’S WHAT YOU GET ON YOUR MATH TEST." - <strong>Steven He’s Dad, Certified Asian Parent</strong></p>
+  
+  </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {% endblock content %}
